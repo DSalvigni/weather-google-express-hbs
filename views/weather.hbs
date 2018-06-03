@@ -1,0 +1,40 @@
+{{> header}}
+{{#if data}}
+<div class="row marketing">
+  <div class="col-lg-6">   
+    <p>
+        <ul>
+        <h2>Result of the query:</h2>
+        <li><b>Requested Location -> </b>{{{data.insertedLocation}}}</li>
+        <li><b>Latitude -> </b>{{{data.latitude}}}</li>
+        <li><b>Longitude -> </b>{{{data.longitude}}}</li>
+        <li><b>Google corrected Location -> </b>{{{data.address}}}</li>
+        <li><b>Address -> </b>{{{data.address}}}</li>
+        <li><b>Temperature -> </b>{{{data.temperature}}}</li>
+        <li><b>Apparent Temperature -> </b>{{{data.apparentTemperature}}}</li>
+        <li><b>Current Weather -> </b>{{{data.currentWeather}}}</li>
+        <li><b>In the next hours -> </b>{{{data.hourlyWeather}}}</li>
+        <li><b>In the next days -> </b>{{{data.summaryDaily}}}</li>
+        <li><b>Pressure -> </b>{{{data.pressure}}}</li>
+        <li><b>Humidity -> </b>{{{data.humidity}}}</li>
+        <li><b>Author -> </b>'Daniele Salvigni ~ SanGy ~'</li>
+        <li><b>Current Time -> </b>{{{data.currentTime}}}</li>
+        </ul>
+  </div>
+      <div class="col-lg-6">   
+    <div id="map" align="center">
+      <iframe
+        width="400"
+        height="400"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDrQ94DDeBx_Qr48NBZBZOEmGE-3Zywp5Y&q={{data.address}}&center={{data.latitude}},{{data.longitude}}" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+
+{{else}}   
+    <center><b>Please insert a location. Null filed will return null values!</b></center>  
+{{/if}}
+{{> footer}}
